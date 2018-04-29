@@ -388,7 +388,7 @@ public class OnionProxyManager {
 
             controlConnection.authenticate(FileUtilities.read(cookieFile));
             // Tell Tor to exit when the control connection is closed
-            controlConnection.takeOwnership();
+            //controlConnection.takeOwnership();
             controlConnection.resetConf(Collections.singletonList(OWNER));
             // Register to receive events from the Tor process
             controlConnection.setEventHandler(new OnionProxyManagerEventHandler());

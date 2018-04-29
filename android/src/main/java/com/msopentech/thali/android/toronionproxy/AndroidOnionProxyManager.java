@@ -36,6 +36,9 @@ import org.slf4j.LoggerFactory;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
@@ -65,8 +68,13 @@ public class AndroidOnionProxyManager extends OnionProxyManager {
         super.start(enableLogs);
         // Register to receive network status events
         networkStateReceiver = new NetworkStateReceiver();
+        System.out.println("Running TOR start on another thread");
         IntentFilter filter = new IntentFilter(CONNECTIVITY_ACTION);
-        context.registerReceiver(networkStateReceiver, filter);
+        HandlerThread handlerThread = new HandlerThread("ht");
+        handlerThread.start();
+        Looper looper = handlerThread.getLooper();
+        Handler handler = new android.os.Handler(looper);
+        context.registerReceiver(networkStateReceiver, filter, null, handler);
     }
 
     @Override

@@ -21,7 +21,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
-        versionName "0.0.3"
+        versionName "0.0.5"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -40,7 +40,7 @@ publishing {
         android(MavenPublication) {
             groupId 'com.msopentech.thali.toronionproxy.android'
             artifactId 'android'
-            version '0.0.3'
+            version '0.0.5'
             artifact(sourceJar)
             artifact("$buildDir/outputs/aar/android-release.aar")
             pom.withXml {
@@ -67,7 +67,7 @@ task sourceJar(type: Jar) {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.msopentech.thali:universal:0.0.3'
+    implementation 'com.msopentech.thali:universal:0.0.5'
     implementation 'org.slf4j:slf4j-api:1.7.25'
     implementation 'org.slf4j:slf4j-android:1.7.25'
     implementation 'org.torproject:tor-android-binary:0.3.1.9a'

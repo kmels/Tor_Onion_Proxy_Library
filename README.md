@@ -30,9 +30,9 @@ In your Android project add the following to dependencies in build.gradle:
 apply plugin: 'maven'
 
 dependencies {
-    implementation 'com.msopentech.thali:universal:0.0.3'
+    implementation 'com.msopentech.thali:universal:0.0.5'
     implementation 'org.torproject:tor-android-binary:0.3.1.9a'
-    implementation 'com:msopentech:thali:toronionproxy:android:android:0.0.3@aar'
+    implementation 'com:msopentech:thali:toronionproxy:android:android:0.0.5@aar'
     implementation 'org.slf4j:slf4j-android:1.7.7'
 }
 
@@ -111,8 +111,8 @@ Then go to your repositories and add:
 
 Then go to dependencies and add in:
 ```groovy
-implementation 'com.msopentech.thali:java:0.0.3'
-implementation 'com.msopentech.thali:universal:0.0.3'
+implementation 'com.msopentech.thali:java:0.0.5'
+implementation 'com.msopentech.thali:universal:0.0.5'
 implementation 'org.slf4j:slf4j-api:1.7.7'
 implementation 'net.freehaven.tor.control:jtorctl:0.2'
 ```
@@ -176,7 +176,7 @@ Note however that shared files like the jtorctl-briar, geoip and torrc are kept 
 One further complication are tests. Hard experience has taught that putting tests into universal doesn't work well because it means we have to write custom wrappers for each test in android and java in order to run them. So instead the tests live primarily in the android project and we use a gradle task to copy them over to the Java project. This lets us share identical tests but it means that all edits to tests have to happen in the android project. Any changes made to shared test code in the java project will be lost. This should not be an issue for anyone but a dev actually working on Tor_Onion_Proxy_Library, to users its irrelevant.
 
 ## What is the maturity of the code in this project?
-Well the release version is currently 0.0.3 so that should say something. This is an alpha. We have (literally) one test. Obviously we need a heck of a lot more coverage. But we have run that test and it does actually work which means that the Tor OP is being run and is available.
+Well the release version is currently 0.0.5 so that should say something. This is an alpha. We have (literally) one test. Obviously we need a heck of a lot more coverage. But we have run that test and it does actually work which means that the Tor OP is being run and is available.
 
 ## Can I run multiple programs next to each other that use this library?
 Yes, they won't interfere with each other. We use dynamic ports for both the control and socks channel. 
